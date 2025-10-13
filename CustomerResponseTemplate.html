@@ -1,0 +1,686 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width-device-width", initial scale-"1.0">
+<style>
+* {
+ text-color: #232f3e;
+}
+.logos {
+  padding: 2em;
+  margin-top: -5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 15%;
+}
+
+.logos-images {
+ background-color: #f2f2f2;
+}
+
+.logos td {
+  width: 20%;
+  padding: 5%;
+}
+
+h1 {
+  text-align: center;
+  margin: -25%;
+}
+
+button {
+ padding: 8px;
+ border-radius: 10px;
+ background-color: #ff9900;
+ border-color: #ffAA22;
+ cursor: pointer;
+ box-shadow: 1px 2px #A2A2A2;
+}
+
+.options-background {
+ background-color: #F0F0F0;
+}
+
+.options {
+ background-color: #232f3e;
+}
+
+.options button {
+ padding: 1%;
+ width: 100%;
+ display: inline-block;
+ }
+ 
+ .options td {
+   padding: 5%;
+ }
+
+
+.templates {
+  padding: 9%;
+  margin-top: -42%;
+  margin-right: 0%;
+  margin-left: -3%;
+  height: 15%;
+  width: 15%;
+  text-align: center;
+}
+
+.buttons {
+  background-color: linear-gradient(#A9A9A9, #F0F0F0, #0F0F0F, #9A9A9A);
+}
+
+.text-space {
+ margin-top: 40%;
+ margin-left: 30%;
+ text-wrap: wrap;
+ text-align: left;
+ height: 400px;
+ width: 600px;
+}
+
+.text-space button {
+  text-align: center;
+  margin: 2px 2px;
+  }
+</style>
+<script>
+function resp1() {
+  message.innerHTML = "<p>Is the entire order out of stock?<br><br>" + "<input type='radio' name='to-option' id='OrderYes' class='to-option' value='yes'>Yes</input>" + "<input type='radio' name='to-option' id='OrderNo' class='to-option' value='no'>No</input>" + "<br><br>Your Name: <input type='text' id='empName' /><br><br>" + "What product is out of stock?<br><br>" + "<input type=text id='prodName' />" + "<br><br><button id='Submit' onclick='toText()'>Submit</button>"
+}
+
+function toText() {
+  var toYes = document.getElementById("OrderYes").checked
+  var toNo = document.getElementById("OrderNo").checked
+  var empName = document.getElementById('empName').value;
+  var prodName = document.getElementById("prodName").value;
+  if (toYes == 1) {
+    message.innerHTML = "<p align=left>Greetings,<br>" + "Thank you for your recent purchase with Mardel. We appreciate it!<br>" + "I am so sorry, but due to an unforeseen clerical error in the warehouse we are not able to fulfill your order.<br>" + "As a result, your order has been cancelled and your refund has been issued. Again, I do sincerely apologize for any inconvenience this may cause. If there is anything else I can assist you with, please feel free to contact us.<br>" + "<br>" + empName + "<br>Mardel Customer Service</p>";
+  } else if (toNo == 1) {
+    message.innerHTML = "<p align=left>Greetings,<br> Thank you for your recent purchase with Mardel. We appreciate it!<br>" + "I am so sorry, but due to an unforeseen clerical error in the warehouse we are not able to fulfill your complete order. The following item is out of stock:<br><br>" + prodName + "<br><br>Unfortunately we can not ship the remainder of the order and only have the option to fully refund your order. The other items are in stock. You may place a new order if you are still interested in the other items.<br>" + "As a result, I have cancelled and fully refunded your order. Again, I do sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br>" + "<br>" + empName + "<br>Mardel Customer Service</p>";
+  }
+}
+
+function resp2() {
+  message.innerHTML = "<p>Is the order too costly for us?<br><br>" + "<input type='radio' name='cost' id='CostYes' class='cost' value='yes'>Yes</input>" + "<input type='radio' name='cost' id='CostNo' class='cost' value='no'>No</input>" + "<br><br>Your Name: <input type='text' id='empName' /><br><br>" + "Item Name:<br><br>" + "<input type=text id='prodName' />" + "<br><br><button id='Submit' onclick='listingText()'>Submit</button>"
+}
+
+function listingText() {
+  var costYes = document.getElementById("CostYes").checked
+  var costNo = document.getElementById("CostNo").checked
+  var empName = document.getElementById('empName').value;
+  var prodName = document.getElementById("prodName").value;
+  if (costYes == 1) {
+    message.innerHTML = "<p>Greetings,<br> Thank you for contacting Mardel. I am so sorry you received the incorrect brand for the " + prodName + ". After viewing our inventory in the warehouse, there has been an update with the " + prodName + " that we were not informed about.<br><br> Due to this manufacture update, you received what is now available and I was not able to locate any as pictured left in our warehouse. We have taken down the listing for updates and I have refunded you for your order due to our clerical error. I have attached a pre-paid return label so that you may return the item you received in error.<br><br> I sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br><br>" + empName + "<br>Mardel Customer Service</p>"
+  }
+  if (costNo == 1) {
+    message.innerHTML = "<p>Greetings,<br>Thank you for contacting Mardel. I am so sorry you received the incorrect brand for the " + prodName + ". After viewing our inventory in the warehouse, there has been an update with the " + prodName + " that we were not informed about.<br><br>Due to this manufacture update, you received what is now available and I was not able to locate any as pictured left in our warehouse. We have taken down the listing for updates and I have refunded you for your order due to our clerical error. There will be no need to return what you received in error, you may keep to gift or donate.<br><br> I sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br><br>" + empName + "<br>Mardel Customer Service</p>"
+  }
+}
+
+function resp3() {
+  message.innerHTML = "<p>Is the product in stock?<br><br>" + "<input type='radio' name='Damaged' id='StockYes' class='Damaged' value='yes'>Yes</input>" + "<input type='radio' name='Damaged' id='StockNo' class='Damaged' value='no'>No</input>" + "<br><br>Your Name: <input type='text' id='empName' /><br><br>" + "Name of the product:<br><br>" + "<input type=text id='prodName' />" + "<hr>If you created a replacement order:<br><br>What carrier did you use? <input type=text id='carrier' /><br><br>" + "What is the estimated delivery date? <input type='date' id='delivery' /><br><br>" + "<br><br><button onclick='damagedText()'>Submit</button>"
+}
+
+function damagedText(delMonth, delDate) {
+  var stockYes = document.getElementById("StockYes").checked;
+  var stockNo = document.getElementById("StockNo").checked;
+  var carrierName = document.getElementById("carrier").value;
+  var empName = document.getElementById('empName').value;
+  var prodName = document.getElementById("prodName").value;
+  var delTime = document.getElementById("delivery").value;
+  var delTime = new Date(delTime);
+  var delMonth = delTime.getMonth() + 1;
+  var delDate = delTime.getDate() + 1;
+  var delYear = delTime.getFullYear();
+  if (stockNo == 1) {
+    message.innerHTML = "<p>Greetings,<br><br>Thank you for contacting Mardel. I am so sorry you received your " + prodName + " in that condition!<br><br>Unfortunately, the " + prodName + " is completely out of stock, so I am not able to ship a replacement. Due to out of stock, I have fully refunded you for your order. As for the damaged/defective " + prodName + " you received in poor condition, please feel free to dispose, there will be no need to return.<br><br>I sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br><br>" + empName + "<br>Mardel Customer Service</p>"
+  }
+  if (stockYes == 1) {
+     if(document.getElementById("delivery").value==""){
+       alert("Must include date");
+       document.getElementById("delivery").style.borderColor = "red";
+       return;
+     } else {
+       document.getElementById("delivery").style.borderColor = "black";
+     }
+    message.innerHTML = "<p>Greetings,<br><br>Thank you for contacting Mardel. I am so sorry you received your " + prodName + " in that condition!<br><br>I am shipping you a replacement order via " + carrierName + " and you can expect the replacement to be delivered on " + delMonth + "/" + delDate + "/" + delYear + ". As for the defective " + prodName + " you received in poor condition, please feel free to dispose, there will be no need to return.<br><br>I sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br><br>" + empName + "<br>Mardel Customer Service</p>"
+  }
+}
+
+function resp4() {
+  message.innerHTML = "<p>Has the order already shipped?<br /><br />" + "<input type='radio' name='Shipped' id='ShippedYes' class='Shipped' value='yes'>Yes</input>" + "<input type='radio' name='Shipped' id='ShippedNo' class='Damaged' value='no'>No</input>" + "<br /><br />Your Name: <input type='text' id='empName'></input>" + "<br /><br />If so, when did it ship?<br /><br />" + "<input type='date' id='shipDate'></input>" + "<br /><br /><button onclick='cancelation()'>Submit</button>"
+}
+
+function cancelation() {
+  var shippedYes = document.getElementById("ShippedYes").checked;
+  var shippedNo = document.getElementById("ShippedNo").checked;
+  var empName = document.getElementById('empName').value;
+  var shipTime = document.getElementById("shipDate").value;
+  var shipTime = new Date(shipTime);
+  var shipMonth = shipTime.getMonth() + 1;
+  var shipDate = shipTime.getDate() + 1;
+  var shipYear = shipTime.getFullYear();
+  if (shippedYes == 1) {
+    if(document.getElementById("shipDate").value==""){
+       alert("Must include date");
+       document.getElementById("shipDate").style.borderColor = "red";
+       return;
+     } else {
+       document.getElementById("shipDate").style.borderColor = "black";
+     }
+    message.innerHTML = "<p>Greetings,<br /><br />Thank you for contacting Mardel. Your order package has already been processed and shipped, as of " + shipMonth + "/" + shipDate + "/" + shipYear + ". Unfortunately once an order has been processed for shipment, we are not able to stop or cancel the order package with the carrier. As always with Mardel, if you no longer need or want your ordered item(s), you may return to us within 90 days of purchase to:" + "<p align=center>Mardel, Inc.<br />Attn: Web Returns<br />7727 SW 44th St.<br />Oklahoma City, OK 73179</p>" + "<p>Please reference your order number and have the original paperwork in your package. All items must be returned in new condition, in a packaged box in order for Mardel to accept. The items will damage in envelopes.<br /><br />If there is anything else we can assist you with, please feel free to contact us.<br /><br />" + empName + "<br />Mardel Customer Service</p>"
+  }
+  if (shippedNo == 1) {
+    message.innerHTML = "<p>Greetings,<br /><br />Thank you for contacting Mardel. Per your request, your order has been cancelled.<br /><br />If there is antyhing else we can assist you with, please feel free to contact us.<br /><br />Have a blessed day!<br /><br />" + empName + "<br />Mardel Customer Service</p>"
+  }
+}
+
+function resp5() {
+  message.innerHTML = "<table border=0><tr><td>Customer has chosen to cancel the order</td> <td><input type='radio' name='Shipped' id='cancelOrder' align='right'></input></td><tr><td>We are able to order a replacement</td><td><input type='radio' name='Shipped' id='shipOrder' align='right'></input></td></tr><tr><td>Your Name: </td><td><input type=text id='empName'></input></td></tr></table><br /><button onclick='lostPackage()'>Submit</button>"
+}
+
+function lostPackage() {
+  var shipOrder = document.getElementById("shipOrder").checked;
+  var cancelOrder = document.getElementById("cancelOrder").checked;
+  var empName = document.getElementById('empName').value;
+  if (shipOrder == 1) {
+    message.innerHTML = "<p>Greetings,<br /><br />Thank you for contacting Mardel. I am sorry for the much delayed delivery. After checking your tracking status, I have found out there was a glitch in our warehouse system once your order package was scanned for shipment.<br /><br />I have been waiting on any movement from your order package, however I am not able to locate once it left our warehouse. I do apologize for any confusion on your tracking information. I will get another replacement order shipped out with expedited shipping method.<br /><br />Again, I do sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br /><br />" + empName + "<br />Mardel Customer Service</p>"
+  }
+  if (cancelOrder == 1) {
+    message.innerHTML = "<p>Greetings,<br /><br />Thank you for contacting Mardel. I am so sorry for the much delayed delivery. After checking your tracking status, I have found out there was a glitch in our warehouse system once your order package was scanned for shipment.<br /><br />I have been waiting on any movement from your order package, however I am not able to locate once it left our warehouse. I do apologize for any confusion on your tracking information. Per your request, I have fully refunded you for your order.<br /><br />Again, I do sincerely apologize for any inconvenience this may cause. If you have any other questions or concerns, please feel free to contact us.<br /><br />" + empName + "<br />Mardel Customer Service</p>"
+  }
+}
+
+function resp6() {
+  message.innerHTML = "<p>Your Name: <br /><br /><input type='text' id='empName'></input><br /><br />Has the customer requested a return label for No Longer Needed/Want, Bought by Mistake, Not As Expected, Arrived Too Late or anything other than being our fault for return?<br /><br /><input type='radio' name='returnLabel' value='yes' id='returnYes'>Yes</input><br /><input type='radio' name='returnLabel' value='no' id='returnNo'>No</input><br /><br /><button onclick='returnPolicy()'>Submit</button></p>"
+}
+
+function returnPolicy() {
+  var returnYes = document.getElementById("returnYes").checked;
+  var returnNo = document.getElementById("returnNo").checked;
+  var empName = document.getElementById('empName').value;
+  if (returnYes == 1) {
+    message.innerHTML = "<p>Due to the order package being shipped and delivered by the given promise date, our policy does not allow us to be responsible for the return expense. As always with Mardel, if you no longer want or need your order, you may return to us, ship to:</p><p align=center>Mardel, Inc.<br />Attn: Web Returns<br />7727 SW 44th St<br />Oklahoma City, OK 73179</p><p>Attach a note inside including your Amazon Order ID number and reason of returning. All items must be returned in new condition, in order for Mardel to accept. All items must be returned in a box.</p><p>Once we receive your return, we will then process for the item refund. If there is anything else we can assist you with, please feel free to contact us.</p><p>" + empName + "<br />Mardel Customer Service</p>"
+  }
+  if (returnNo == 1) {
+    message.innerHTML = "<p>As always with Mardel, if you no longer need or want the ordered item(s), you will be responsible for return expense and may return to us at:</p><p align=center>Mardel, Inc.<br />Attn: Web Returns<br />7727 SW 44th Street<br />Oklahoma City, OK 73179</p><p>Please reference your order number and have the original paperwork in your package. All items must be returned in new condition, in order for Mardel to accept. All items must be returned in a box.</p><p>Once we receive your return, we will then process for the item refund. If there is anything else we can assist you with, please feel free to contact us.</p><p>Thank you for shopping with us!</p><p>" + empName + "<br />Mardel Customer Service</p>"
+  }
+}
+
+function resp7() {
+  message.innerHTML = "<p>Advise the Buyer if inmate has <em>Inmate Number</em>, to include the inmate number or it will be refused by the facility.<br /><br />Any packages going to a correctional facility must go via USPS carrier. Corrections facilities only accept USPS, not FexEd or any other carrier.<br /><br />Your Name: <input type=text id='empName'></input><br /><br /><button onclick='prisonPolicy()'>Submit</button></p>"
+}
+
+function prisonPolicy() {
+  var empName = document.getElementById('empName').value;
+  message.innerHTML = "<p>Greetings,<br /><br />Thank you for contacting Mardel. I would highly recommend contacting the correctional facility to determine if they accept order packages from Mardel and what their policies/guidelines are for inmate’s items in mail. Once you have verified with the facility Mardel is an approved vendor, you may place an order.<br /><br />If you any questions or concerns, please feel free to contact us.Thank you and have a blessed day!<br /><br />" + empName + "<br />Mardel Customer Service</p>"
+}
+
+function resp8() {
+  message.innerHTML = "<p>Mardel is one of many third-party sellers on Amazon and do list our items on Amazon with a shipping fee. Mardel is not a participant as an Amazon Prime Merchant, so we do not fulfill any Amazon Prime orders nor do we participate and list our items under Amazon Prime. Thus, reason as to why you show a shipping fee on your order.</p><p>You may be viewing other third-party sellers on Amazon that sell the same item, but through Amazon Prime. We are not allowed to refund shipping charges once an order has been fulfilled and delivered on time, as promised on your invoice. Not all sellers on Amazon are Amazon Prime merchants or ship Amazon Prime, unless listed as so.</p><p>For future reference, we recommend checking your order invoice once you place an order, so that you may verify your order is correct.</p><p><hr></p><p>Customer Name: <input type='text' id='custName'></input><br /><br />Ship by: <input type='date' id='shipA'></input> to: <input type='date' id='shipB'><br /><br />Deliver by: <input type='date' id='deliverA'></input> to: <input type='date' id='deliverB'></input><br /><br />Delivery service: <input type='text' id='deliverService'></input><br /><br />Tracking number: <input type='text' id='trackNum'></input><br /><br />Your Name: <input type='text' id='empName'><br /><br /><button onclick='thirdParty()'>Submit</button></p>"
+}
+
+function thirdParty(){
+  var custName1 = document.getElementById("custName").value;
+  var shipA = new Date(document.getElementById("shipA").value);
+  var shipB = new Date(document.getElementById("shipB").value);
+  var delService = document.getElementById("deliverService").value;
+  var delA = new Date(document.getElementById("deliverA").value);
+  var delB = new Date(document.getElementById("deliverB").value);
+  var trackNum = document.getElementById("trackNum").value;
+  var empName = document.getElementById("empName").value;
+  var shipAMonth = "";
+  var shipBMonth = "";
+  var delAMonth = "";
+  var delBMonth = "";
+  var getShipAMonth = shipA.getMonth();
+  var getShipBMonth = shipB.getMonth();
+  var getDelAMonth = delA.getMonth();
+  var getDelBMonth = delB.getMonth();
+  var shipADate = shipA.getDate() + 1;
+  var shipBDate = shipB.getDate() + 1;
+  var delADate = delA.getDate() + 1;
+  var delBDate = delB.getDate() + 1;
+  var getShipADay = shipA.getDay();
+  var getShipBDay = shipB.getDay();
+  var getDelADay = delA.getDay();
+  var getDelBDay = delB.getDay();
+  var shipADay = "";
+  var shipBDay = "";
+  var delADay = "";
+  var delBDay = "";
+  var shipAYear = shipA.getFullYear();
+  var shipBYear = shipB.getFullYear();
+  var delAYear = delA.getFullYear();
+  var delBYear = delB.getFullYear();
+
+ if(document.getElementById("shipA").value=="" || document.getElementById("shipB").value=="" || document.getElementById("deliverA").value=="" || document.getElementById("deliverB").value==""){
+       alert("Must include date");
+ if(document.getElementById("shipA").value==""){
+       document.getElementById("shipA").style.borderColor = "red";
+     } else {
+       document.getElementById("shipA").style.borderColor = "black";
+     }
+  if(document.getElementById("shipB").value==""){
+       document.getElementById("shipB").style.borderColor = "red";
+     } else {
+       document.getElementById("shipB").style.borderColor = "black";
+     }
+ if(document.getElementById("deliverA").value==""){
+       document.getElementById("deliverA").style.borderColor = "red";
+     } else {
+       document.getElementById("deliverA").style.borderColor = "black";
+     }
+  if(document.getElementById("deliverB").value==""){
+       document.getElementById("deliverB").style.borderColor = "red";
+     } else {
+       document.getElementById("deliverB").style.borderColor = "black";
+     }
+     return;
+    }
+   if(shipADate==32 && getShipAMonth==11){
+     shipADate = 1;
+     getShipAMonth = 0;
+     shipAYear = shipAYear+1;
+   }
+   if(shipBDate==32 && getShipBMonth==11){
+     shipBDate = 1;
+     getShipBMonth = 0;
+     shipBYear = shipBYear+1;
+   }
+   if(delADate==32 && getDelAMonth==11){
+     delADate = 1;
+     getDelAMonth = 0;
+     delAYear = delAYear+1;
+   }
+   if(delBDate==32 && getDelBMonth==11){
+     delBDate = 1;
+     getDelBMonth = 0;
+     delBYear = delBYear+1;
+   }
+   if(shipADate==32 && (getShipAMonth==0 || getShipAMonth==2 || getShipAMonth==4 || getShipAMonth==7 || getShipAMonth==9)){
+     shipADate = 1;
+     getShipAMonth++;
+   }
+   if(shipBDate==32 && (getShipBMonth==0 || getShipBMonth==2 || getShipBMonth==4 || getShipBMonth==7 || getShipBMonth==9)){
+     shipBDate = 1;
+     getShipBMonth++;
+   }
+   if(delADate==32 && (getDelAMonth==0 || getDelAMonth==2 || getDelAMonth==4 || getDelAMonth==7 || getDelAMonth==9)){
+     delADate = 1;
+     getDelAMonth++;
+   }
+   if(delBDate==32 && (getDelAMonth==0 || getDelAMonth==2 || getDelAMonth==4 || getDelAMonth==7 || getDelAMonth==9)){
+     delBDate = 1;
+     getDelBMonth++;
+   }
+ if(shipAYear % 4 === 0){
+  if(shipADate==30 && getShipAMonth==1){
+   shipADate = 1;
+   getShipAMonth = 2;
+   }
+  } else {
+    if(shipADate==29 && getShipAMonth==1){
+   shipADate = 1;
+   getShipAMonth = 2;
+  }
+ }
+ if(shipBYear % 4 === 0){
+  if(shipBDate==30 && getShipBMonth==1){
+   shipBDate = 1;
+   getShipBMonth = 2;
+   }
+  } else {
+    if(shipBDate==29 && getShipBMonth==1){
+   shipBDate = 1;
+   getShipBMonth = 2;
+  }
+ }
+ if(delAYear % 4 === 0){
+  if(delADate >=28 && getDelAMonth==1){
+   delADate = 1;
+   getDelAMonth = 2;
+   }
+  } else {
+   if(delADate==29 && getDelAMonth==1){
+   delADate = 1;
+   getDelAMonth = 2;
+  }
+ }
+ if(delBYear % 4 === 0){
+  if(delBDate==30 && getDelBMonth==1){
+   delBDate = 1;
+   getDelBMonth = 2;
+   }
+  } else {
+   if(delBDate==29 && getDelBMonth==1){
+   delBDate = 1;
+   getDelBMonth = 2;
+  }
+ }
+  if(shipADate==31 && (getShipAMonth==3 || getShipAMonth==5 || getShipAMonth==8 || getShipAMonth==10)){
+     shipADate = 1;
+     getShipAMonth++;
+   }
+  if(shipBDate==31 && (getShipBMonth==3 || getShipBMonth==5 || getShipBMonth==8 || getShipBMonth==10)){
+     shipBDate = 1;
+     getShipBMonth++;
+   }
+  if(delADate==31 && (getDelAMonth==3 || getDelAMonth==5 || getDelAMonth==8 || getDelAMonth==10)){
+     delADate = 1;
+     getDelAMonth++;
+   }
+  if(delBDate==31 && (getDelBMonth==3 || getDelBMonth==5 || getDelBMonth==8 || getDelBMonth==10)){
+     delBDate = 1;
+     getDelBMonth++;
+   }
+   switch (getShipAMonth) {
+    case 0:
+      shipAMonth = "Jan";
+      break;
+    case 1:
+      shipAMonth = "Feb";
+      break;
+    case 2:
+      shipAMonth = "Mar";
+      break;
+    case 3:
+      shipAMonth = "Apr";
+      break;
+    case 4:
+      shipAMonth = "May";
+      break;
+    case 5:
+      shipAMonth = "Jun";
+      break;
+    case 6:
+      shipAMonth = "Jul";
+      break;
+    case 7:
+      shipAMonth = "Aug";
+      break;
+    case 8:
+      shipAMonth = "Sep";
+      break;
+    case 9:
+      shipAMonth = "Oct";
+      break;
+    case 10:
+      shipAMonth = "Nov";
+      break;
+    case 11:
+      shipAMonth = "Dec";
+      break;
+    case 12:
+      shipAMonth = "Jan";
+   }
+   switch (getShipBMonth) {
+    case 0:
+      shipBMonth = "Jan";
+      break;
+    case 1:
+      shipBMonth = "Feb";
+      break;
+    case 2:
+      shipBMonth = "Mar";
+      break;
+    case 3:
+      shipBMonth = "Apr";
+      break;
+    case 4:
+      shipBMonth = "May";
+      break;
+    case 5:
+      shipBMonth = "Jun";
+      break;
+    case 6:
+      shipBMonth = "Jul";
+      break;
+    case 7:
+      shipBMonth = "Aug";
+      break;
+    case 8:
+      shipBMonth = "Sep";
+      break;
+    case 9:
+      shipBMonth = "Oct";
+      break;
+    case 10:
+      shipBMonth = "Nov";
+      break;
+    case 11:
+      shipBMonth = "Dec";
+      break;
+    case 12:
+      shipBMonth = "Jan";
+   }
+   switch (getDelAMonth) {
+    case 0:
+      delAMonth = "Jan";
+      break;
+    case 1:
+      delAMonth = "Feb";
+      break;
+    case 2:
+      delAMonth = "Mar";
+      break;
+    case 3:
+      delAMonth = "Apr";
+      break;
+    case 4:
+      delAMonth = "May";
+      break;
+    case 5:
+      delAMonth = "Jun";
+      break;
+    case 6:
+      delAMonth = "Jul";
+      break;
+    case 7:
+      delAMonth = "Aug";
+      break;
+    case 8:
+      delAMonth = "Sep";
+      break;
+    case 9:
+      delAMonth = "Oct";
+      break;
+    case 10:
+      delAMonth = "Nov";
+      break;
+    case 11:
+      delAMonth = "Dec";
+      break;
+    case 12:
+      delAMonth = "Jan";
+   }
+   switch (getDelBMonth) {
+    case 0:
+      delBMonth = "Jan";
+      break;
+    case 1:
+      delBMonth = "Feb";
+      break;
+    case 2:
+      delBMonth = "Mar";
+      break;
+    case 3:
+      delBMonth = "Apr";
+      break;
+    case 4:
+      delBMonth = "May";
+      break;
+    case 5:
+      delBMonth = "Jun";
+      break;
+    case 6:
+      delBMonth = "Jul";
+      break;
+    case 7:
+      delBMonth = "Aug";
+      break;
+    case 8:
+      delBMonth = "Sep";
+      break;
+    case 9:
+      delBMonth = "Oct";
+      break;
+    case 10:
+      delBMonth = "Nov";
+      break;
+    case 11:
+      delBMonth = "Dec";
+      break;
+    case 12:
+      delBMonth = "Jan";
+   }
+     switch(getShipADay) {
+   case 0:
+    shipADay = "Mon";
+    break;
+   case 1:
+    shipADay = "Tue";
+    break;
+   case 2:
+    shipADay = "Wed";
+    break;
+   case 3:
+    shipADay = "Thu";
+    break;
+   case 4:
+    shipADay = "Fri";
+    break;
+   case 5:
+    shipADay = "Sat";
+    break;
+   case 6:
+    shipADay = "Sun";
+  }
+  switch(getShipBDay) {
+   case 0:
+    shipBDay = "Mon";
+    break;
+   case 1:
+    shipBDay = "Tue";
+    break;
+   case 2:
+    shipBDay = "Wed";
+    break;
+   case 3:
+    shipBDay = "Thu";
+    break;
+   case 4:
+    shipBDay = "Fri";
+    break;
+   case 5:
+    shipBDay = "Sat";
+    break;
+   case 6:
+    shipBDay = "Sun";
+   }
+  switch(getDelADay) {
+   case 0:
+    delADay = "Mon";
+    break;
+   case 1:
+    delADay = "Tue";
+    break;
+   case 2:
+    delADay = "Wed";
+    break;
+   case 3:
+    delADay = "Thu";
+    break;
+   case 4:
+    delADay = "Fri";
+    break;
+   case 5:
+    delADay = "Sat";
+    break;
+   case 6:
+    delADay = "Sun";
+  }
+  switch(getDelBDay) {
+   case 0:
+    delBDay = "Mon";
+    break;
+   case 1:
+    delBDay = "Tue";
+    break;
+   case 2:
+    delBDay = "Wed";
+    break;
+   case 3:
+    delBDay = "Thu";
+    break;
+   case 4:
+    delBDay = "Fri";
+    break;
+   case 5:
+    delBDay = "Sat";
+    break;
+   case 6:
+    delBDay = "Sun";
+   }
+  message.innerHTML = "<p>Greetings " + custName1 + ",</p><p>Thank you for contacting Mardel. As you were invoiced upon placing an order with Mardel, your ship by promise date is for:</p>Order summary</p><p>Ship by: "
+ + shipADay + ", " + shipAMonth + " " + shipADate + ", " + shipAYear + " to "
++  shipBDay + ", " + shipBMonth + " " + shipBDate + ", " + shipBYear + "<br />Deliver by: " + delADay + ", " + delAMonth + " " + delADate + ", " + delAYear + " to "+  delBDay + ", " + delBMonth + " " + delBDate + ", " + delBYear + "</p><p>Your order was processed and shipped out as of today, via " + delService + "  with tracking number " + trackNum + ".<br /><br />If there is anything else we can assist you with, please feel free to contact us.<br /><br />" + empName + "<br />Mardel Customer Service</p>"
+}
+ function resp9(){
+  message.innerHTML = "<p>Cancellation Order: <input type='radio' name='returnType' id='cancelOrder'></input><br /><br />Refund Issued Only: <input type='radio' name='returnType' id='refundOrder'></input><br /><br /><button onclick='refundResponse()'>Submit</button></p>"
+}
+ function refundResponse(){
+  var cancelOrder = document.getElementById("cancelOrder").checked;
+  var refundOrder = document.getElementById("refundOrder").checked;
+  if(cancelOrder==1){
+  message.innerHTML = "<p>Due to Mardel being a third-party seller on Amazon, once we cancel an order, we no longer have access to your order due to privacy reasons.</p><p>Typically once we cancel an order, the cancellation and refund should reflect within the next 1-3 business days depending on the payment method you used when placing the order on Amazon.</p><p>If you do not see your refund reflect within the next 1-2 business days, you will need to inquire with Amazon Customer Service. Amazon Customer Service will be able to access your Amazon Account and the ETA of refunded amount.</p>"
+  }
+  if(refundOrder==1){
+  message.innerHTML = "<p>Due to Mardel being a third-party seller on Amazon, once we refund an order, we no longer have access of payment refund to your order due to privacy reasons.</p><p>Typically once we refund an order, the refund should reflect within the next 1-3 business days depending on the payment method you used when placing the order on Amazon.</p><p>If you do not see your refund reflect within the next 1-2 business days, you will need to inquire with Amazon Customer Service. Amazon Customer Service will be able to access your Amazon Account and the ETA of refunded amount.</p>"
+  }
+}
+</script>
+<title>Customer Templates</title>
+</head>
+<body>
+<header>
+<legend class="logos">
+<fieldset class="logos-images">
+<table align="center">
+<tr>
+  <td><img alt="Mardel Logo" src=""https://cdn.media.amplience.net/i/mardel/test-logo" height=58 width=250></td>
+  <td></td>
+   <td><img src="https://cdn.freebiesupply.com/images/large/2x/amazon-logo-transparent.png" height=75 width=250>
+  </td>
+</tr>
+</table>
+</fieldset>
+</legend>
+<h1>
+Customer Response Template
+</h1>
+</header>
+<div align=center class="text-space" id="message">
+</div>
+<legend class="templates">
+<caption><strong>Select One</strong></caption>
+<fieldset class="options-background">
+<div class="buttons">
+<table align=center class="options">
+<tr><td><button onclick=resp1()>T.O.'s</button></td></tr>
+<tr><td><button onclick=resp4()>Amazon Cancellations</button></td></tr>
+<tr><td><button onclick=resp6()>Mardel Return Policy</button></td></tr>
+<tr><td><button onclick=resp2()>Inaccurate Web Listing/ISBN Update/Change in Product</button></td></tr>
+<tr><td><button onclick=resp3()>Damaged/Defective Items</button></td></tr>
+<tr><td><button onclick=resp5()>Lost Package/No Tracking Information</button></td></tr>
+<tr><td><button onclick=resp7()>Correctional Facility Order/Prison or Jail Facility</button></td></tr>
+<tr><td><button onclick=resp8()>Third Party Seller Guidelines</button></td></tr>
+<tr><td><button onclick=resp9()>Amazon Refunds</button></td></tr>
+</table>
+</div>
+</fieldset>
+</legend>
+</body>
+</html>
